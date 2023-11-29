@@ -1,22 +1,35 @@
 {% extends "core/base.html" %}
 {% block content %}
-
-<form method="post">
-    {% csrf_token %}
-    <h2>Sign Up</h2>
-    {% for field in form %}
-	<p>
-		{% if field.errors %}
-		<ul class="errorlist">
-			{% for error in field.errors %}
-			<li>{{ error }}</li>
-			{% endfor %}
-		</ul>
-		{% endif %}
-	 	{{ field.label_tag }} {{ field }}
-	</p>
-	{% endfor %}
-	<input type="submit" value="Register" />
-</form>
-
+	<div class="main-block">
+            <div class="reg-block">
+                <div class="header">
+                    Регистрация
+                </div>
+                <div class="sign-in">
+                  <div class="sign-in-field">
+                    <div class="sign-in-header">
+                      Логин
+                    </div>
+                    <input type="text" class="input-field">
+                  </div>
+                  <div class="sign-in-field">
+                    <div class="sign-in-header">
+                      Пароль
+                    </div>
+                    <input type="password" class="input-field">
+                  </div>
+                  <div class="sign-in-field">
+                    <div class="sign-in-header">
+                      Подтверждение пароля
+                    </div>
+                    <input type="password" class="input-field">
+                  </div>
+                  <form action="{% url 'users:profile' %}" class="login-reg-block">
+                    <button class="universal-button">
+                      Зарегистрироваться
+                    </button>
+                  </form>
+                </div>
+            </div>
+        </div>
 {% endblock %}
