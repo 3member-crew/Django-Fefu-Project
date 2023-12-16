@@ -690,7 +690,8 @@ textarea {
 }
 
 .universal-button {
-    width: 55%;
+    width: 65%;
+    justify-content: center;
     background-color: #013c66;
     color: white;
     padding: 10px 10px;
@@ -701,7 +702,6 @@ textarea {
     font-family: 'Montserrat', sans-serif;
     border: 1px #013c66 solid;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);;
-    font-size: 22px;
 }
 
 .universal-button:hover {

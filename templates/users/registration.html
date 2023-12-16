@@ -1,35 +1,24 @@
 {% extends "core/base.html" %}
 {% block content %}
 	<div class="main-block">
-            <div class="reg-block">
-                <div class="header">
-                    Регистрация
-                </div>
-                <div class="sign-in">
-                  <div class="sign-in-field">
-                    <div class="sign-in-header">
-                      Логин
-                    </div>
-                    <input type="text" class="input-field">
-                  </div>
-                  <div class="sign-in-field">
-                    <div class="sign-in-header">
-                      Пароль
-                    </div>
-                    <input type="password" class="input-field">
-                  </div>
-                  <div class="sign-in-field">
-                    <div class="sign-in-header">
-                      Подтверждение пароля
-                    </div>
-                    <input type="password" class="input-field">
-                  </div>
-                  <form action="{% url 'users:profile' %}" class="login-reg-block">
-                    <button class="universal-button">
-                      Зарегистрироваться
-                    </button>
-                  </form>
-                </div>
+    <div class="reg-block">
+      <div class="header">
+        Регистрация
+      </div>
+      <form method="post" class="login-reg-block">
+        {% csrf_token %}
+        <div class="sign-in">
+        {% for field in form %}
+          <div class="sign-in-field">
+            <div class="sign-in-header">                     
+              {{field.label}}
             </div>
-        </div>
+            {{field}}
+          </div>
+        {% endfor %}       
+          <input class="universal-button" type="submit" value="Зарегистрироваться" />
+      </div> 
+    </form>
+  </div>
+</div>
 {% endblock %}

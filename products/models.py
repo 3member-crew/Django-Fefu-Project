@@ -67,7 +67,14 @@ class Product(models.Model):
             self.add_date = timezone.now()
         self.change_date = timezone.now()
         self.slug = self.unique_slug()
-        return super(Product, self).save(*args, **kwargs)
+
+        super(Product, self).save(*args, **kwargs)
+        SIZE = (125, 125)
+        image = Image.open(self.image.path)
+        if image.width > 125 or image.height > 125:
+            print(self.image.path)
+            image.thumbnail(SIZE)
+            image.save(self.image.path)
 
     def __str__(self):
         return self.title

@@ -13,21 +13,19 @@
                     <ul class="posts-list">
                         {% for product in products %} <!-- TODO: rename variable for backend -->
                             <div class="post-inner">
-                                <div class="post-photo">
-                                    <a href="">{{ posts|default:"error loading post image" }}<img> <!-- TODO: image parse --> </a>
+                                <div class="post-header">
+                                    <a href="{% url 'products:product' product.category.slug product.slug %}"><h3>{{ product.title }}</h3></a>
                                 </div>
-                                <div>
-                                    <div class="post-header">
-                                        <a href="{% url 'products:product' product.category.slug product.slug %}"><h3>{{ product.title }}</h3></a>
-                                    </div>
+                                <div class="post-photo">
+                                    <a href="{% url 'products:product' product.category.slug product.slug %}"> <img src="{{product.image.url}}"></a>
+                                </div>
+                                <div>   
                                     <div class="post-short-desc">
-                                        <div class="post-price">
-                                            {{ product.price |default:"error loading post price" }} ₽
-                                        </div>
-                                        <div class="post-location">
-                                        </div>
                                         <div class="post-data">
                                             {{ product.add_date |default:"error loading post data" }}
+                                        </div>
+                                        <div class="post-price">
+                                            {{ product.price |default:"error loading post price" }} ₽
                                         </div>
                                     </div>
                                 </div>
