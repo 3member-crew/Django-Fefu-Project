@@ -55,45 +55,45 @@
             <div id="advertisement-header">
                 <b>Объявления</b>
             </div>
-            {% if !products %}
-                <div class="ad-button">
-                    <span id="is-advertisement">
-                        Объявлений нет
-                    </span>
-                    <form action="{% url 'users:create_product' request.user.username %}">
-                        <button class="universal-button">
-                            Создать
-                        </button>
-                    </form>
-                </div>
-            {% else %}
+            {% if products %}
                 {% for product in products %}
-                    <form action="{% url 'products:product' product.category.slug product.slug %}" class="ad-form">
-                        <button class="ad">
+                    <div id="ad-name">
+                        {{product.title}}
+                    </div>
+                    <div class="ad-info-with-photo">
+                        <div class="ad-info">
+                            <div class="ad-photo-dir">
+                                <div id="ad-photo">
+                                    <img src="{{product.image.url}}">
+                                </div>
+                            </div>
+                            <div id="description">
+                                Описание
+                                <div>
+                                {{product.description}}
+                                </div>
+                            </div>
                             <div id="ad-date">  
                                 {{product.add_date}}
                             </div>
-                            <div id="ad-name">
-                                {{product.title}}
+                            <div id="price">
+                                Цена
+                                {{product.price}}  руб.
                             </div>
-                            <div class="ad-info-with-photo">
-                                <div class="ad-info">
-                                    <div id="price">
-                                        {{product.price}}  руб.
-                                    </div>
-                                    <div id="description">
-                                        {{product.description}}
-                                    </div>
-                                </div>
-                                <div class="ad-photo-dir">
-                                    <div id="ad-photo">
-                                        {{product.image}}
-                                    </div>
-                                </div>
-                            </div>
-                        </button>
-                    </form>
+                        </div>
+                    </div>
                 {% endfor %}
+            {% else %}
+            <div class="ad-button">
+                <span id="is-advertisement">
+                    Объявлений нет
+                </span>
+                <form action="{% url 'users:create_product' request.user.username %}">
+                    <button class="universal-button">
+                        Создать
+                    </button>
+                </form>
+            </div>
             {% endif %}
         </div>
     </div>

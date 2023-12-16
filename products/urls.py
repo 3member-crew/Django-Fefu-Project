@@ -7,7 +7,6 @@ from . import views
 app_name = 'products'
 
 urlpatterns = [
-    path('category/<slug:category_slug>/', views.category, name='category'),
     path('category/<slug:category_slug>/details/<slug:product_slug>/', views.product, name='product'),
     path('', views.search, name="search"),
     path('buy/<slug:product_slug>', views.buy_product, name='buy_product'),
@@ -16,3 +15,4 @@ urlpatterns = [
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
