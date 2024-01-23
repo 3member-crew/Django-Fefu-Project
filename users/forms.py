@@ -37,11 +37,12 @@ class UserLoginForm( AuthenticationForm):
         super(UserLoginForm, self).__init__(*args, **kwargs)
 
     username = forms.CharField(widget=forms.TextInput(
-        attrs={'class': 'form-control', 'placeholder': 'Username or Email'}),
-        label="Username or Email*")
+        attrs={'class': 'form-control', 'placeholder': 'Юзернейм или почта'}),
+        label="Юзернейм или почта")
 
     password = forms.CharField(widget=forms.PasswordInput(
-        attrs={'class': 'form-control', 'placeholder': 'Password'}))
+        attrs={'class': 'form-control', 'placeholder': 'Пароль'}),
+        label='Пароль')
 
 
 class UserUpdateForm(forms.ModelForm):

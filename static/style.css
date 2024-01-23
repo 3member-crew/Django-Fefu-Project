@@ -2,7 +2,6 @@
 
 * {
     font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
 }
 
 body {
@@ -42,7 +41,7 @@ body {
 }
 
 .top-navbar {
-    padding: 0px 300px;
+    padding: 5px 300px;
     display: flex;
     background-color: #0067b1;
     flex-direction: row;
@@ -53,6 +52,7 @@ body {
     color: #aed6ff;
     text-decoration: none;
     transition: 0.5s;
+    font-size: 15px;
 }
 
 .top-navbar a:hover {
@@ -88,15 +88,16 @@ body {
 }
 
 .search-bar {
-    width: 100%;
+    margin-left: 100px;
+    width: 100vh;
     display: flex;
     justify-content: center;
+    flex-direction: row;
 }
 
 .main-search {
     width: 100%;
     border: 3px solid #0067b1;
-    border-right: none;
     padding: 5px;
     height: 50px;
     border-radius: 5px 0 0 5px;
@@ -108,7 +109,6 @@ body {
 .main-search-after {
     width: 55%;
     border: 3px solid #0067b1;
-    border-right: none;
     padding: 5px;
     height: 50px;
     border-radius: 5px 0 0 5px;
@@ -123,7 +123,7 @@ body {
 
 .search-button {
     width: 100px;
-    height: 50px;
+    height: 66px;
     border: 1px solid #0067b1;
     background: #0067b1;
     text-align: center;
@@ -151,21 +151,23 @@ body {
     display: flex;
     flex-direction: column;
     list-style: none;
-    padding: 0px 30px;
-    
+    padding: 0px 30px;   
 }
 
 .categories-list a {
     color: #fff;
     text-decoration: none;
+    font-size: 20px;
+}
+
+.posts {
+    margin-left: 100px;
 }
 
 .posts-list {
     display: flex;
-    flex-direction: column;
     list-style: none;
     padding-left: 0px;
-    margin-right: 10px;
 }
 
 .post-inner {
@@ -606,12 +608,11 @@ textarea {
 }
 
 .reg-block {
-    --display: flex;
-    --flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border-radius: 10px;
     border: 5px solid #aed6ff;
-    width: 30%;
-    --height: 50vh;
     margin-top: 10px;
     background-color: #0067b1;
     color: white;
@@ -633,16 +634,13 @@ textarea {
     padding-left: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
-    border-radius: 5px;
-    border-color: #aed6ff;
+    
 }
 
 .sign-in {
     display: flex;
     flex-direction: column;
-    --align-items: center;
-    --justify-content: center;
-    width: 100%;
+    align-items: center;
     --height: 100vh;
     padding: 10px;
 }
@@ -650,10 +648,14 @@ textarea {
 .sign-in-field {
     display: flex;
     flex-direction: column;
-    align-self: flex-start;
     margin-bottom: 15px;
-    margin-left: 5px;
-    width: 90%;
+}
+
+.sign-in-field input {
+    border: 3px solid #aed6ff;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
 }
 
 .sign-in-header {
@@ -684,24 +686,18 @@ textarea {
     color: #c0caf0;
 }
 
-.login-reg-block {
-    display: flex;
-    justify-content: center;
-}
-
 .universal-button {
-    width: 65%;
-    justify-content: center;
     background-color: #013c66;
     color: white;
     padding: 10px 10px;
-    font-size: 18px;
+    font-size: 30px;
     border-radius: 5px;
     margin-bottom: 20px;
     margin-top: 10px;
     font-family: 'Montserrat', sans-serif;
     border: 1px #013c66 solid;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    cursor: pointer;
 }
 
 .universal-button:hover {

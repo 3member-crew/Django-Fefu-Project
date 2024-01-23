@@ -15,18 +15,15 @@
               </div>
               {{field}}
             </div>
-          {% endfor %}     
-          <button class="universal-button">
-            Войти
-          </button>
-        </div>
-      </form>
+            {% endfor %}     
+            <button class="universal-button">
+              Войти
+            </button>
+          </div>
+        </form>
       <div id="create-account">
-        <div id="cr-acc-header">
-          Ещё нет аккаунта?
-        </div>
       <a href="{% url 'users:register' %}" id="register-link">
-        Зарегистрируйтесь
+        Или зарегистрируйтесь
       </a>
     </div>
   </div>

@@ -1,15 +1,27 @@
 {% extends "core/base.html" %}
 {% block content %}
-<p>{{product.title}}</p>
-<p>{{product.add_date}}</p>
-<p>{{product.price}}</p>
-<p>{{product.description}}</p>
-{% if request.user.is_authenticated and request.user != product.vendor %}
-<form action="{% url 'products:buy_product' product.slug %} " method="post">
-    {% csrf_token %}
-    <input type="submit" value="Купить">
-</form>
-{% endif %}
+<div style="display: flex; flex-direction: column; align-items: center;">
+    <img src={{product.image.url}} style="">
+    <div style="font-weight: bold; font-size: 70px">
+        {{ product.title }}
+    </div>
+    <div style="color: grey; font-size: 20px;">
+        {{ product.add_date }}
+    </div>
+    <div style="margin-bottom: 50px; font-weight: bold; font-size: 45px">
+        {{ product.price }} ₽
+    </div>
+    <div>
+        {{ product.description }}
+    </div>
+    {% if request.user.is_authenticated and request.user != product.vendor %}
+    <form action="{% url 'products:buy_product' product.slug %} " method="post">
+        {% csrf_token %}
+        <input class="universal-button" type="submit" value="Купить">
+    </form>
+    {% endif %}
+</div>
+
                             
 
 {% endblock %}
